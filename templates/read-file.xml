@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+  <!-- from https://stackoverflow.com/questions/1028858/useful-eclipse-java-code-templates -->
+  <template autoinsert="true" context="java-statements" deleted="false" description="Parse a XML file into Document" enabled="true" name="readfile">
+    <![CDATA[
+      ${:import(java.nio.file.Files,
+                java.nio.file.Paths,
+                java.nio.charset.Charset,
+                java.io.IOException,
+                java.io.BufferedReader)}
+      try (BufferedReader in = Files.newBufferedReader(Paths.get(${fileName:var(String)}),
+                                                       Charset.forName("UTF-8"))) {
+          String line = null;
+          while ((line = in.readLine()) != null) {
+              ${cursor}
+          }
+      } catch (IOException e) {
+          // ${todo}: handle exception
+      }   
+    ]]>
+  </template>
+</templates>

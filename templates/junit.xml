@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+  <!-- https://github.com/mnuessler/eclipse-templates/blob/master/java/template-java-before.xml -->
+  <template autoinsert="true" context="java-members" deleted="false" description="set up before test" enabled="true" name="before">
+    <![CDATA[
+      @${beforeType:newType(org.junit.Before)}
+      public void setUp() throws Exception {
+        ${cursor}
+      }
+   ]]>
+  </template>
+  <!-- https://github.com/mnuessler/eclipse-templates/blob/master/java/template-java-beforeclass.xml -->
+  <template autoinsert="true" context="java-members" deleted="false" description="set up before test class" enabled="true" name="beforeclass">
+    <![CDATA[
+      @${beforeType:newType(org.junit.BeforeClass)}
+      public void setUpBeforeClass() throws Exception {
+          ${cursor}
+      }
+    ]]>
+  </template>
+  <!-- https://github.com/mnuessler/eclipse-templates/blob/master/java/template-java-after.xml -->
+  <template autoinsert="true" context="java-members" deleted="false" description="tear down after test" enabled="true" name="after">
+    <![CDATA[
+      @${afterType:newType(org.junit.After)}
+      public void tearDown() throws Exception {
+          ${cursor}
+      }
+   ]]>
+  </template>
+  <template autoinsert="true" context="java-members" deleted="false" description="tear down after test class" enabled="true" name="afterclass">
+    <![CDATA[
+    @${afterType:newType(org.junit.AfterClass)}
+    public void tearDownAfterClass() throws Exception {
+        ${cursor}
+    }
+  ]]>
+  </template>
+</templates>

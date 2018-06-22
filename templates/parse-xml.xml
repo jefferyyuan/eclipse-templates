@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+  <!-- from https://stackoverflow.com/questions/1028858/useful-eclipse-java-code-templates -->
+  <template autoinsert="true" context="java-statements" deleted="false" description="Parse a XML file into Document" enabled="true" name="parsexml">
+    <![CDATA[
+      ${:import(org.w3c.dom.Document,
+                javax.xml.parsers.DocumentBuilderFactory,
+                java.io.File,
+                java.io.IOException,
+                javax.xml.parsers.ParserConfigurationException,
+                org.xml.sax.SAXException)}
+      Document doc = null;
+      try {
+          doc = DocumentBuilderFactory.newInstance()
+                  .newDocumentBuilder()
+                  .parse(new File(${filename:var(String)}));
+      } catch (SAXException | IOException | ParserConfigurationException e) {
+          // ${todo}: handle exception
+      }
+      ${cursor}    
+    ]]>
+  </template>
+</templates>

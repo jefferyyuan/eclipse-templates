@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+  <!-- from https://stackoverflow.com/questions/1028858/useful-eclipse-java-code-templates -->
+  <template autoinsert="true" context="java-members" deleted="false" description="slf4j logger" enabled="true" name="logger">
+    <![CDATA[
+      ${:import(org.slf4j.Logger, org.slf4j.LoggerFactory)}
+      private static final Logger logger = LoggerFactory.getLogger(${enclosing_type}.class);
+      ${cursor}
+    ]]>
+  </template>
+
+  <template autoinsert="true" context="java-members" deleted="false" description="slf4j logger" enabled="true" name="logger-sfl4j">
+    <![CDATA[
+      ${:import(org.slf4j.Logger, org.slf4j.LoggerFactory)}
+      private static final Logger logger = LoggerFactory.getLogger(${enclosing_type}.class);
+      ${cursor}
+    ]]>
+  </template>
+
+  <template autoinsert="true" context="java-members" deleted="false" description="log4j2 logger" enabled="true" name="logger-log4j2">
+    <![CDATA[
+      ${:import(org.apache.logging.log4j.LogManager,org.apache.logging.log4j.Logger)} 
+      private static final Logger LOG = LogManager.getLogger(${enclosing_type}.class);${cursor}
+    ]]>
+  </template>
+
+  <template autoinsert="true" context="java-members" deleted="false" description="log4j logger" enabled="true" name="logger-log4j">
+    <![CDATA[
+      ${:import(org.apache.log4j.Logger)} 
+      private static final Logger LOG = Logger.getLogger(${enclosing_type}.class); ${cursor}
+    ]]>
+  </template>
+
+  <!-- from https://howtodoinjava.com/tools/eclipse/create-eclipse-templates-for-faster-java-coding/ -->
+  <template autoinsert="true" context="java-statements" deleted="false" description="log debug message" enabled="true" name="logd">
+    <![CDATA[
+      if(LOGGER.isDebugEnabled()) { LOGGER.debug(${word_selection}${});} ${cursor}
+    ]]>
+  </template>
+
+  <template autoinsert="true" context="java" deleted="false" description="" enabled="true" name="logmeth">
+    <![CDATA[
+        logger.info("${enclosing_method} {}", Arrays.toString(new Object[] {${enclosing_method_arguments}}));
+      ]]>
+  </template>
+</templates>
